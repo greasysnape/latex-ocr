@@ -1,0 +1,32 @@
+# Tiny configuration for CPU sanity checks
+
+data:
+  train: data/synth/train.tsv
+  val: data/synth/val.tsv
+  vocab: data/synth/vocab.json
+  img_height: 48
+  max_width: 320
+  max_len: 120
+  num_workers: 0
+
+model:
+  d_model: 128
+  nhead: 4
+  enc_layers: 2
+  dec_layers: 2
+  dim_ff: 512
+  dropout: 0.1
+
+train:
+  epochs: 5
+  batch_size: 16
+  lr: 5.0e-4
+  weight_decay: 0.01
+  warmup_steps: 100
+  grad_clip: 1.0
+  label_smoothing: 0.0
+  amp: false
+  seed: 42
+  out_dir: checkpoints/small
+  eval_every: 1
+  eval_samples: 100

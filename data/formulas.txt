@@ -1,0 +1,119 @@
+% Seed formulas for the synthetic renderer (mathtext-compatible subset of LaTeX).
+% One formula per line; lines starting with % are ignored.
+x = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}
+e^{i\pi} + 1 = 0
+a^{2} + b^{2} = c^{2}
+E = mc^{2}
+F = ma
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+\sum_{k=0}^{\infty} \frac{x^{k}}{k!} = e^{x}
+\int_{0}^{\infty} e^{-x^{2}} dx = \frac{\sqrt{\pi}}{2}
+\int_{a}^{b} f(x) dx = F(b) - F(a)
+\lim_{n \rightarrow \infty} \left(1 + \frac{1}{n}\right)^{n} = e
+\lim_{x \rightarrow 0} \frac{\sin x}{x} = 1
+\frac{d}{dx} \sin x = \cos x
+\frac{\partial f}{\partial x}
+\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_{0}}
+\nabla \times \mathbf{B} = \mu_{0} \mathbf{J}
+\mathbf{F} = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})
+\hat{y} = \sigma(W x + b)
+\sigma(x) = \frac{1}{1 + e^{-x}}
+\tanh(x) = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}
+\mathrm{ReLU}(x) = \max(0, x)
+\mathrm{softmax}(z)_{i} = \frac{e^{z_{i}}}{\sum_{j} e^{z_{j}}}
+\mathrm{Attention}(Q, K, V) = \mathrm{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V
+\mathcal{L} = -\sum_{i} y_{i} \log \hat{y}_{i}
+\mathcal{L}(\theta) = \frac{1}{N} \sum_{i=1}^{N} \ell(f_{\theta}(x_{i}), y_{i})
+\theta_{t+1} = \theta_{t} - \eta \nabla_{\theta} \mathcal{L}(\theta_{t})
+m_{t} = \beta_{1} m_{t-1} + (1 - \beta_{1}) g_{t}
+v_{t} = \beta_{2} v_{t-1} + (1 - \beta_{2}) g_{t}^{2}
+\hat{m}_{t} = \frac{m_{t}}{1 - \beta_{1}^{t}}
+p(x) = \frac{1}{\sqrt{2\pi\sigma^{2}}} e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+\mathbb{E}[X] = \sum_{x} x p(x)
+\mathrm{Var}(X) = \mathbb{E}[X^{2}] - \mathbb{E}[X]^{2}
+P(A|B) = \frac{P(B|A) P(A)}{P(B)}
+D_{KL}(P \| Q) = \sum_{x} P(x) \log \frac{P(x)}{Q(x)}
+H(X) = -\sum_{x} p(x) \log p(x)
+I(X; Y) = H(X) - H(X|Y)
+\log p(x) \geq \mathbb{E}_{q(z|x)}[\log p(x|z)] - D_{KL}(q(z|x) \| p(z))
+q(x_{t}|x_{t-1}) = \mathcal{N}(x_{t}; \sqrt{1 - \beta_{t}} x_{t-1}, \beta_{t} I)
+\bar{\alpha}_{t} = \prod_{s=1}^{t} \alpha_{s}
+x_{t} = \sqrt{\bar{\alpha}_{t}} x_{0} + \sqrt{1 - \bar{\alpha}_{t}} \epsilon
+\min_{G} \max_{D} V(D, G)
+Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_{a'} Q(s', a') - Q(s, a)]
+V^{\pi}(s) = \mathbb{E}_{\pi}\left[\sum_{t=0}^{\infty} \gamma^{t} r_{t}\right]
+J(\theta) = \mathbb{E}_{\tau \sim \pi_{\theta}}[R(\tau)]
+\nabla_{\theta} J(\theta) = \mathbb{E}[\nabla_{\theta} \log \pi_{\theta}(a|s) A(s, a)]
+\mathrm{PE}(pos, 2i) = \sin\left(\frac{pos}{10000^{2i/d}}\right)
+\mathrm{LayerNorm}(x) = \gamma \frac{x - \mu}{\sqrt{\sigma^{2} + \epsilon}} + \beta
+h_{t} = \tanh(W_{h} h_{t-1} + W_{x} x_{t} + b)
+f_{t} = \sigma(W_{f} [h_{t-1}, x_{t}] + b_{f})
+c_{t} = f_{t} \odot c_{t-1} + i_{t} \odot \tilde{c}_{t}
+y = W_{2} \mathrm{GELU}(W_{1} x + b_{1}) + b_{2}
+\mathrm{PPL} = \exp\left(-\frac{1}{N} \sum_{i=1}^{N} \log p(w_{i})\right)
+\mathrm{BLEU} = BP \cdot \exp\left(\sum_{n=1}^{N} w_{n} \log p_{n}\right)
+F_{1} = \frac{2 \cdot P \cdot R}{P + R}
+\cos(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}
+\|x\|_{2} = \sqrt{\sum_{i} x_{i}^{2}}
+\|x\|_{p} = \left(\sum_{i=1}^{n} |x_{i}|^{p}\right)^{1/p}
+A = U \Sigma V^{T}
+A \mathbf{v} = \lambda \mathbf{v}
+\det(A - \lambda I) = 0
+(AB)^{T} = B^{T} A^{T}
+\mathrm{tr}(AB) = \mathrm{tr}(BA)
+\frac{\partial}{\partial x} x^{T} A x = (A + A^{T}) x
+f(x) \approx f(a) + f'(a)(x - a) + \frac{f''(a)}{2}(x - a)^{2}
+f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x - a)^{n}
+\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} dx
+\int \int_{D} f(x, y) dA
+\oint_{C} \mathbf{F} \cdot d\mathbf{r}
+\frac{\partial u}{\partial t} = \alpha \nabla^{2} u
+\frac{\partial^{2} u}{\partial t^{2}} = c^{2} \frac{\partial^{2} u}{\partial x^{2}}
+i\hbar \frac{\partial}{\partial t} \Psi = \hat{H} \Psi
+\Delta x \Delta p \geq \frac{\hbar}{2}
+S = k_{B} \ln \Omega
+PV = nRT
+\frac{dN}{dt} = -\lambda N
+N(t) = N_{0} e^{-\lambda t}
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+(a + b)^{n} = \sum_{k=0}^{n} \binom{n}{k} a^{k} b^{n-k}
+n! \approx \sqrt{2\pi n} \left(\frac{n}{e}\right)^{n}
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^{s}}
+\Gamma(z) = \int_{0}^{\infty} t^{z-1} e^{-t} dt
+\sum_{n=1}^{\infty} \frac{1}{n^{2}} = \frac{\pi^{2}}{6}
+\forall \epsilon > 0, \exists \delta > 0
+x \in \mathbb{R}^{n}
+A \cup B = B \cup A
+A \cap (B \cup C) = (A \cap B) \cup (A \cap C)
+f: X \rightarrow Y
+O(n \log n)
+T(n) = 2T(n/2) + O(n)
+a \equiv b \ (\mathrm{mod}\ n)
+\gcd(a, b) = \gcd(b, a \ \mathrm{mod}\ b)
+\phi(n) = n \prod_{p|n} \left(1 - \frac{1}{p}\right)
+\lfloor x \rfloor \leq x < \lfloor x \rfloor + 1
+\sqrt[3]{x^{3} + y^{3}}
+\frac{1}{1 - x} = \sum_{n=0}^{\infty} x^{n}
+|x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon
+y'' + p(x) y' + q(x) y = 0
+\dot{x} = A x + B u
+\mathbf{x}_{k+1} = \mathbf{x}_{k} - H^{-1} \nabla f(\mathbf{x}_{k})
+\arg\min_{w} \|y - Xw\|^{2} + \lambda \|w\|^{2}
+w^{*} = (X^{T} X + \lambda I)^{-1} X^{T} y
+K(x, x') = \exp\left(-\frac{\|x - x'\|^{2}}{2\ell^{2}}\right)
+\mathrm{IoU} = \frac{|A \cap B|}{|A \cup B|}
+\mathrm{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_{i} - \hat{y}_{i})^{2}
+R^{2} = 1 - \frac{\sum_{i} (y_{i} - \hat{y}_{i})^{2}}{\sum_{i} (y_{i} - \bar{y})^{2}}
+\rho_{X,Y} = \frac{\mathrm{cov}(X, Y)}{\sigma_{X} \sigma_{Y}}
+z = \frac{x - \mu}{\sigma}
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_{i}
+s^{2} = \frac{1}{n-1} \sum_{i=1}^{n} (x_{i} - \bar{x})^{2}
+\mathcal{N}(\mu, \Sigma)
+\pi(\theta|x) \propto p(x|\theta) \pi(\theta)
+\hat{\theta}_{MLE} = \arg\max_{\theta} \prod_{i=1}^{n} p(x_{i}|\theta)
+\mathrm{logit}(p) = \log \frac{p}{1 - p}
+\mathcal{L}_{\mathrm{CLIP}} = -\frac{1}{2N} \sum_{i=1}^{N} \left(\log \frac{e^{s_{ii}/\tau}}{\sum_{j} e^{s_{ij}/\tau}} + \log \frac{e^{s_{ii}/\tau}}{\sum_{j} e^{s_{ji}/\tau}}\right)
+\mathcal{L}_{\mathrm{DPO}} = -\log \sigma\left(\beta \log \frac{\pi_{\theta}(y_{w}|x)}{\pi_{\mathrm{ref}}(y_{w}|x)} - \beta \log \frac{\pi_{\theta}(y_{l}|x)}{\pi_{\mathrm{ref}}(y_{l}|x)}\right)
+W' = W + \Delta W = W + B A
+r_{t}(\theta) = \frac{\pi_{\theta}(a_{t}|s_{t})}{\pi_{\theta_{old}}(a_{t}|s_{t})}
+L^{CLIP}(\theta) = \mathbb{E}_{t}[\min(r_{t}(\theta) A_{t}, \mathrm{clip}(r_{t}(\theta), 1 - \epsilon, 1 + \epsilon) A_{t})]

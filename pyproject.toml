@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "latex-ocr"
+version = "0.4.0"
+description = "Image-to-LaTeX OCR for math formulas"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["ocr", "latex", "math", "pytorch", "transformer"]
+dependencies = [
+    "torch>=2.1",
+    "numpy>=1.24",
+    "Pillow>=10.0",
+    "PyYAML>=6.0",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+render = ["matplotlib>=3.8"]
+onnx = ["onnx>=1.15", "onnxruntime>=1.17"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+latex-ocr = "latex_ocr.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["latex_ocr*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

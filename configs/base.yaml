@@ -1,0 +1,32 @@
+# Default training configuration (~10M parameters)
+
+data:
+  train: data/synth/train.tsv
+  val: data/synth/val.tsv
+  vocab: data/synth/vocab.json
+  img_height: 64
+  max_width: 512
+  max_len: 200
+  num_workers: 4
+
+model:
+  d_model: 256
+  nhead: 8
+  enc_layers: 4
+  dec_layers: 4
+  dim_ff: 1024
+  dropout: 0.1
+
+train:
+  epochs: 30
+  batch_size: 32
+  lr: 3.0e-4
+  weight_decay: 0.01
+  warmup_steps: 1000
+  grad_clip: 1.0
+  label_smoothing: 0.1
+  amp: true
+  seed: 42
+  out_dir: checkpoints
+  eval_every: 1
+  eval_samples: 500
